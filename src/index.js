@@ -6,6 +6,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App/App'
+import GlobalStyle from './assets/styles/global'
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(
+  <>
+    <App />
+    <GlobalStyle />
+  </>,
+  rootElement
+)
