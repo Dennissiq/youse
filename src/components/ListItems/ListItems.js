@@ -9,7 +9,7 @@ import {
   ContentText
 } from './styles'
 
-export default function ListItem({ item: { items } }) {
+export default function ListItem({ item: items }) {
   return (
     <>
       {items.map(item => (
