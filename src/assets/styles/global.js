@@ -19,9 +19,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     height: auto;
   }
-  button {
-    cursor: pointer;
-  }
 `
 
 export default GlobalStyle

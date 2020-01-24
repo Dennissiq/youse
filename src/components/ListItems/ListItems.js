@@ -26,3 +26,9 @@ export default function ListItem({ item: { items } }) {
     </>
   )
 }
+
+ListItem.propTypes = {
+  item: PropTypes.shape({
+    items: PropTypes.array.isRequired
+  })
+}

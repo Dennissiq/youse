@@ -8,7 +8,6 @@ export const NameList = styled.h2`
 `
 export const EmailList = styled.p`
   font-family: 'Open Sans', sans-serif;
-  /* margin-left: 0.2rem; */
   padding-bottom: 0.8rem;
 `
 
