@@ -4,11 +4,11 @@ import { withInfo } from '@storybook/addon-info'
 
 import List from './List'
 
-export const content = {
-  text: '1. Dados Pessoais'
-}
+export const dataItems = [{}]
+
+export const searchContent = {}
 
 storiesOf('List', module).add(
   'List',
-  withInfo()(() => <List content={content} />)
+  withInfo()(() => <List items={dataItems} searchContent={searchContent} />)
 )

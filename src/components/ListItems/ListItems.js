@@ -9,7 +9,7 @@ import {
   ContentText
 } from './styles'
 
-export default function ListItem({ item: items }) {
+export default function ListItems({ item: items }) {
   return (
     <>
       {items.map(item => (
@@ -27,7 +27,7 @@ export default function ListItem({ item: items }) {
   )
 }
 
-ListItem.propTypes = {
+ListItems.propTypes = {
   item: PropTypes.shape({
     items: PropTypes.array.isRequired
   })

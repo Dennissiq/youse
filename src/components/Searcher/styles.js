@@ -5,21 +5,31 @@ export const Container = styled.div`
   @media screen and (max-width: 900px) {
     max-width: 100%;
   }
-  max-width: 50%;
+  max-width: 51%;
 `
 export const SearchInput = styled.input`
-  width: 60%;
+  width: 100%;
   padding: 1rem 0.5rem;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  transition: ease-in-out, width 0.35s ease-in-out;
-  color: ${colors.primary};
-  border: 1px solid ${colors.gray};
-  &:focus {
-    border: 2px solid ${colors.warning};
-    width: 80%;
-    outline: none;
+  transition: 0.3s;
+  border: 1px solid ${colors.lightGray};
+  font-weight: 600;
+  &::placeholder {
+    color: ${colors.gray};
   }
+  &:focus {
+    border: 5px solid ${colors.primary};
+    width: 50%;
+    outline: none;
+    background-color: ${colors.warning};
+    color: ${colors.light};
+
+    &::placeholder {
+      color: ${colors.light};
+    }
+  }
+  margin-bottom: 3rem;
 `
 export const Title = styled.div`
   h2 {
