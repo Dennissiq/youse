@@ -16,13 +16,13 @@ export default function App() {
    *
    **/
 
-  API.fetch({ filter: 'Mr.', skip: 0, limit: 200 })
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  // API.fetch({ filter: 'Mr.', skip: 0, limit: 200 })
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  //   .catch(error => {
+  //     console.log(error)
+  //   })
 
   const items = [
     {

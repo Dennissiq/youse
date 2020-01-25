@@ -17,8 +17,8 @@ export default function ListItems({ item: items }) {
           <ContentFlex>
             <YouserIcon />
             <ContentText>
-              <NameList>{item.name}</NameList>
-              <EmailList>{item.email}</EmailList>
+              <NameList>{item.title}</NameList>
+              <EmailList>{item.description}</EmailList>
             </ContentText>
           </ContentFlex>
         </Container>

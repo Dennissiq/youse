@@ -10,37 +10,25 @@ import listActions from '../../store/ducks/list/list'
 import { Container } from './styles'
 
 class ListUsers extends React.Component {
-  // componentDidMount() {
-  //   this.getCategories()
-  // }
+  componentDidMount() {
+    this.getUsers()
+  }
 
-  // getCategories = () => {
-  //   const { categoryListRequest } = this.props
-  //   categoryListRequest()
-  // }
+  getUsers = () => {
+    const { listRequest } = this.props
+    listRequest()
+  }
 
-  // getSelectedCategory = category => {
-  //   localStorage.setItem('@category', category)
-  //   const { categoryRequest } = this.props
-  //   categoryRequest(category)
-  // }
   render() {
+    console.log(this.props.items)
     return (
       <Container>
         <Searcher
           content={{
-            title: 'Digite o nome da pessoa que deseja procurar:'
+            title: 'Digite o nome ou e-mail da pessoa que deseja procurar:'
           }}
         />
-        <ListItems
-          item={[
-            {
-              id: 1,
-              name: 'Dennis Siqueira',
-              email: 'dennis.siqueira@youse.com.br'
-            }
-          ]}
-        />
+        <ListItems item={this.props.items} />
       </Container>
     )
   }
@@ -48,7 +36,7 @@ class ListUsers extends React.Component {
 
 const mapStateToProps = state => ({
   // items: state.list.data
-  items: state
+  items: state.list.data
 })
 
 const mapDispatchToProps = dispatch =>
