@@ -9,6 +9,7 @@ export const NameList = styled.h2`
 export const EmailList = styled.p`
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 0.8rem;
+  text-transform: lowercase;
 `
 
 export const Container = styled.div`
