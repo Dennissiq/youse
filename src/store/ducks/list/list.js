@@ -1,0 +1,25 @@
+import { createReducer, createActions } from 'reduxsauce'
+
+/* Types & Action Creators */
+const { Types, Creators } = createActions({
+  listRequest: null,
+  listSuccess: ['data']
+})
+
+export const ListTypes = Types
+export default Creators
+
+/* Initial State */
+export const INITIAL_STATE = {
+  data: []
+}
+
+/* Reducers */
+export const list = (state, { data }) => {
+  return { ...state, data }
+}
+
+/* Reducers to types */
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.LIST_SUCCESS]: list
+})

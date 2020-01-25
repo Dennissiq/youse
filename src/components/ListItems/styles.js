@@ -39,6 +39,8 @@ export const Container = styled.div`
 export const YouserIcon = styled.img.attrs({
   src: icon
 })`
+  max-width: 48px;
+  max-height: 63.2px;
   width: 48px;
   height: 63.2px;
   padding: 20px;

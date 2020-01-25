@@ -3,9 +3,9 @@ import { colors } from '../../assets/styles/colors/colors'
 
 export const Container = styled.div`
   @media screen and (max-width: 900px) {
-    max-width: 100%;
+    max-width: 97%;
   }
-  max-width: 51%;
+  max-width: 50.8%;
 `
 export const SearchInput = styled.input`
   width: 100%;
