@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Searcher from '../Searcher/Searcher'
+// import Searcher from '../Searcher/Searcher'
 import ListItems from '../ListItems/ListItems'
 
 import listActions from '../../store/ducks/list/list'
 
-import { Container } from './styles'
+import { Container, ContainerInput, SearchInput } from './styles'
+import Text from '../Text/Text'
 
-class ListUsers extends React.Component {
+class ListUsers extends Component {
+  state = {
+    value: ''
+  }
+
   componentDidMount() {
     this.getUsers()
   }
@@ -19,15 +24,34 @@ class ListUsers extends React.Component {
     listRequest()
   }
 
+  handleChange = e => {
+    console.log(e)
+  }
+
+  handleSearch = e => {
+    this.setState({
+      value: e.target.value
+    })
+    console.log(e)
+  }
+
   render() {
     console.log(this.props.items)
     return (
       <Container>
-        <Searcher
-          content={{
-            title: 'Digite o nome ou e-mail da pessoa que deseja procurar:'
-          }}
-        />
+        <ContainerInput>
+          <Text
+            content={{ title: 'Digite o nome da pessoa que deseja procurar:' }}
+          />
+          <SearchInput
+            type="text"
+            placeholder="Ex.: Machado de Assis"
+            minLength={3}
+            debounceTimeout={300}
+            onChange={e => this.handleSearch(e)}
+          />
+        </ContainerInput>
+        <p>Value: {this.state.value}</p>
         <ListItems item={this.props.items} />
       </Container>
     )
@@ -35,7 +59,6 @@ class ListUsers extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  // items: state.list.data
   items: state.list.data
 })
 

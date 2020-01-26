@@ -7,13 +7,13 @@ import ListItems from './ListItems'
 export const items = [
   {
     id: 1,
-    name: 'Dennis Siqueira',
-    email: 'dennis.siqueira@youse.com.br'
+    title: 'Dennis Siqueira',
+    description: 'dennis.siqueira@youse.com.br'
   },
   {
     id: 2,
-    name: 'Dennis Siqueira',
-    email: 'dennis.siqueira@youse.com.br'
+    title: 'Dennis Siqueira',
+    description: 'dennis.siqueira@youse.com.br'
   }
 ]
 
