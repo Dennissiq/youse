@@ -11,12 +11,13 @@ export default Creators
 
 /* Initial State */
 export const INITIAL_STATE = {
-  data: []
+  data: [],
+  isFetching: true
 }
 
 /* Reducers */
 export const list = (state, { data }) => {
-  return { ...state, data }
+  return { ...state, data, isFetching: false }
 }
 
 /* Reducers to types */

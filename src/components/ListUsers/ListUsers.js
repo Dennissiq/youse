@@ -8,12 +8,9 @@ import listActions from '../../store/ducks/list/list'
 
 import { Container, ContainerInput, SearchInput } from './styles'
 import Text from '../Text/Text'
+import Loading from '../LoaderList/LoaderList'
 
 class ListUsers extends Component {
-  state = {
-    value: ''
-  }
-
   componentDidMount() {
     this.getUsers()
   }
@@ -32,7 +29,6 @@ class ListUsers extends Component {
   }
 
   render() {
-    console.log(this.props.items)
     return (
       <Container>
         <ContainerInput>
@@ -47,7 +43,7 @@ class ListUsers extends Component {
             onChange={e => this.handleSearch(e)}
           />
         </ContainerInput>
-        <p>Value: {this.state.value}</p>
+        <Loading loading={this.props.isFetching} />
         <ListItems item={this.props.items} />
       </Container>
     )
@@ -55,7 +51,8 @@ class ListUsers extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.list.data
+  items: state.list.data,
+  isFetching: state.list.isFetching
 })
 
 const mapDispatchToProps = dispatch =>
