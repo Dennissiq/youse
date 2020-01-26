@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-// import Searcher from '../Searcher/Searcher'
 import ListItems from '../ListItems/ListItems'
 
 import listActions from '../../store/ducks/list/list'
@@ -24,15 +23,12 @@ class ListUsers extends Component {
     listRequest()
   }
 
-  handleChange = e => {
-    console.log(e)
-  }
-
   handleSearch = e => {
     this.setState({
       value: e.target.value
     })
-    console.log(e)
+    const { listRequest } = this.props
+    listRequest(e.target.value)
   }
 
   render() {
@@ -46,7 +42,7 @@ class ListUsers extends Component {
           <SearchInput
             type="text"
             placeholder="Ex.: Machado de Assis"
-            minLength={3}
+            minLength={2}
             debounceTimeout={300}
             onChange={e => this.handleSearch(e)}
           />
