@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 import ListItems from '../ListItems/ListItems'
 
@@ -88,37 +90,42 @@ class ListUsers extends Component {
       maxValue
     } = this.state
     return (
-      <Container>
-        <ContainerInput>
-          <Text
-            content={{ title: 'Digite o nome da pessoa que deseja procurar:' }}
-          />
-          <SearchInput
-            type="text"
-            placeholder="Ex.: Machado de Assis"
-            minLength={2}
-            debounceTimeout={300}
-            onChange={e => this.handleSearch(e)}
-          />
-        </ContainerInput>
-        <Loading loading={isFetching} />
-        <ListItems item={items} />
-        <PaginationContainer>
-          <TextBox
-            paddingRight
-            inactive={inactiveBackButton}
-            onClick={this.handleBack}
-          >
-            Voltar
-          </TextBox>
-          <NumberBox>
-            {initialValue}/{maxValue}
-          </NumberBox>
-          <TextBox inactive={inactiveNextButton} onClick={this.handleNext}>
-            Próximo
-          </TextBox>
-        </PaginationContainer>
-      </Container>
+      <>
+        <ReactNotification />
+        <Container>
+          <ContainerInput>
+            <Text
+              content={{
+                title: 'Digite o nome da pessoa que deseja procurar:'
+              }}
+            />
+            <SearchInput
+              type="text"
+              placeholder="Ex.: Machado de Assis"
+              minLength={2}
+              debounceTimeout={300}
+              onChange={e => this.handleSearch(e)}
+            />
+          </ContainerInput>
+          <Loading loading={isFetching} />
+          <ListItems item={items} />
+          <PaginationContainer showPagination={!isFetching}>
+            <TextBox
+              paddingRight
+              inactive={inactiveBackButton}
+              onClick={this.handleBack}
+            >
+              Voltar
+            </TextBox>
+            <NumberBox>
+              {initialValue}/{maxValue}
+            </NumberBox>
+            <TextBox inactive={inactiveNextButton} onClick={this.handleNext}>
+              Próximo
+            </TextBox>
+          </PaginationContainer>
+        </Container>
+      </>
     )
   }
 }

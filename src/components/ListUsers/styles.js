@@ -13,7 +13,7 @@ export const PaginationContainer = styled.div`
   }
 
   max-width: 52.4%;
-  display: flex;
+  display: ${props => (!props.showPagination ? 'none' : 'flex')};
   justify-content: flex-end;
   padding-top: 1rem;
   padding-right: 1rem;
