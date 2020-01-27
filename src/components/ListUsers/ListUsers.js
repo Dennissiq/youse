@@ -24,7 +24,8 @@ class ListUsers extends Component {
     inactiveBackButton: true,
     inactiveNextButton: false,
     initialValue: 1,
-    maxValue: 200
+    maxValue: 200,
+    searchActive: false
   }
 
   componentDidMount() {
@@ -81,14 +82,27 @@ class ListUsers extends Component {
     }
   }
 
+  activeSearch = (e, active) => {
+    this.setState({
+      searchActive: active
+    })
+    if (e.target.value !== '') {
+      this.setState({
+        searchActive: true
+      })
+    }
+  }
+
   render() {
     const { isFetching, items } = this.props
     const {
       inactiveBackButton,
       inactiveNextButton,
       initialValue,
-      maxValue
+      maxValue,
+      searchActive
     } = this.state
+    console.log(items)
     return (
       <>
         <ReactNotification />
@@ -105,25 +119,39 @@ class ListUsers extends Component {
               minLength={2}
               debounceTimeout={300}
               onChange={e => this.handleSearch(e)}
+              onFocus={e => this.activeSearch(e, true)}
+              onBlur={e => this.activeSearch(e, false)}
             />
           </ContainerInput>
           <Loading loading={isFetching} />
+          {!isFetching && items.length === 0 ? (
+            <ContainerInput>
+              <Text
+                content={{
+                  title:
+                    'Não foi encontrado ninguém pela sua busca. Tente por um novo termo :)'
+                }}
+              />
+            </ContainerInput>
+          ) : null}
           <ListItems item={items} />
-          <PaginationContainer showPagination={!isFetching}>
-            <TextBox
-              paddingRight
-              inactive={inactiveBackButton}
-              onClick={this.handleBack}
-            >
-              Voltar
-            </TextBox>
-            <NumberBox>
-              {initialValue}/{maxValue}
-            </NumberBox>
-            <TextBox inactive={inactiveNextButton} onClick={this.handleNext}>
-              Próximo
-            </TextBox>
-          </PaginationContainer>
+          {!searchActive ? (
+            <PaginationContainer showPagination={!isFetching}>
+              <TextBox
+                paddingRight
+                inactive={inactiveBackButton}
+                onClick={this.handleBack}
+              >
+                Voltar
+              </TextBox>
+              <NumberBox>
+                {initialValue}/{maxValue}
+              </NumberBox>
+              <TextBox inactive={inactiveNextButton} onClick={this.handleNext}>
+                Próximo
+              </TextBox>
+            </PaginationContainer>
+          ) : null}
         </Container>
       </>
     )
