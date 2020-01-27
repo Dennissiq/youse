@@ -8,7 +8,7 @@ export function* loadList(request) {
     console.log(request)
     const response = yield call(api.fetch, {
       filter: request.filter !== undefined ? request.filter : false,
-      skip: 0,
+      skip: request.pagination !== undefined ? request.filter : 0,
       limit: 5
     })
     yield put(listActions.listSuccess(response))

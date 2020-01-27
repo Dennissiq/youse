@@ -41,6 +41,7 @@ class ListUsers extends Component {
 
   handleBack = e => {
     const { initialValue } = this.state
+    const { listRequest } = this.props
 
     if (initialValue > 1) {
       this.setState({
@@ -48,11 +49,14 @@ class ListUsers extends Component {
         inactiveBackButton: false,
         inactiveNextButton: false
       })
+      listRequest(false, initialValue)
     }
     if (initialValue === 2) {
       this.setState({
         inactiveBackButton: true
       })
+      const { listRequest } = this.props
+      listRequest(false, 0)
     }
   }
 
@@ -65,6 +69,8 @@ class ListUsers extends Component {
         inactiveNextButton: false,
         inactiveBackButton: false
       })
+      const { listRequest } = this.props
+      listRequest(false, initialValue)
     }
     if (initialValue === maxValue - 1) {
       this.setState({
