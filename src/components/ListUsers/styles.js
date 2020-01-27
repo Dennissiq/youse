@@ -7,6 +7,39 @@ export const Container = styled.div`
   margin: 1rem;
 `
 
+export const PaginationContainer = styled.div`
+  @media screen and (max-width: 900px) {
+    max-width: 100%;
+  }
+
+  max-width: 52.4%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  padding-right: 1rem;
+`
+
+export const NumberBox = styled.p`
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-family: 'Archivo Black', sans-serif;
+`
+export const TextBox = styled.p`
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 2rem;
+  padding-right: ${props => (props.paddingRight ? '2rem' : '0rem')};
+  font-family: 'Archivo Black', sans-serif;
+  /* transition: 0.3s; */
+  color: ${props => (props.inactive ? colors.gray : colors.secondary)};
+
+  &:hover {
+    text-decoration: ${props => (props.inactive ? 'none' : 'underline')};
+    font-weight: ${props => (props.inactive ? 'normal' : 'bold')};
+    cursor: ${props => (props.inactive ? 'not-allowed' : 'pointer')};
+  }
+`
+
 export const ContainerInput = styled.div`
   @media screen and (max-width: 900px) {
     max-width: 97%;
