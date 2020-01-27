@@ -41,7 +41,7 @@ class ListUsers extends Component {
     listRequest(e.target.value)
   }
 
-  handleBack = e => {
+  handleBack = () => {
     const { initialValue } = this.state
     const { listRequest } = this.props
 
@@ -62,7 +62,7 @@ class ListUsers extends Component {
     }
   }
 
-  handleNext = e => {
+  handleNext = () => {
     const { initialValue, maxValue } = this.state
 
     if (initialValue < maxValue) {

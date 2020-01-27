@@ -24,7 +24,7 @@ export function* loadList(request) {
       animationIn: ['animated', 'fadeIn'],
       animationOut: ['animated', 'fadeOut'],
       dismiss: {
-        duration: 0,
+        duration: 10000,
         onScreen: true
       }
     })
