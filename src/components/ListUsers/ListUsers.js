@@ -102,7 +102,6 @@ class ListUsers extends Component {
       maxValue,
       searchActive
     } = this.state
-    console.log(items)
     return (
       <>
         <ReactNotification />
